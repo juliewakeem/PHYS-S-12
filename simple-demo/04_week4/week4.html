@@ -31,10 +31,60 @@
 
  ![image of embroidery](Week4image3.jpg)
 
+ This is the schematic of the circuit. 
+
+ ![image of embroidery](Week4image4.jpg)
+
+ Here is all of my code:
+
+ <pre><code class="language-arduino">
+    // constants won't change. They're used here to set pin numbers:
+    const int buttonPin = 2;     // the number of the pushbutton pin
+    const int A1A = 3;  // define pin 3 for A-1A
+    const int A1B = 4;  // define pin 4 for A-1B
+    ;
+    
+    void setup() {
+      pinMode(A1A, OUTPUT);     // initialize pins to motor control as output
+      pinMode(A1B, OUTPUT);
+      digitalWrite(A1A, 0);   // start with the motors off
+      digitalWrite(A1B, LOW);
+      // initialize the pushbutton pin as an input:
+      pinMode(buttonPin, INPUT_PULLUP);
+    
+      //initialize pins for the potentiometer:
+      pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
+      pinMode(A4, OUTPUT);  //This will be 3.3V for the pot
+    
+      digitalWrite(A0, LOW);
+      digitalWrite(A4, HIGH);
+    }
+    
+    void loop() {
+      // read the state of the pushbutton value:
+      int buttonState = digitalRead(buttonPin);
+    
+      // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+      if (buttonState == LOW) {
+        // start the motor
+        digitalWrite(A1A, 200);
+        digitalWrite(A1B, LOW);
+        int pot_value = analogRead(A2);   //pot wiper is on A2
+        int motor_speed = map(pot_value, 0, 1023, 255, 100); // map motor_level to pot_value so that zero corresponds to lowest speed
+        analogWrite(A1A, motor_speed);
+        delay(1);
+      } else {
+        // stop the motor
+        digitalWrite(A1A, 0);   //  turns off motor when the button is unpressed
+        digitalWrite(A1B, LOW);
+      }
+    
+    }
+ </code></pre>
+
+ Finally, here is the final product video!
+
  
-
-
-
 
 </xmp>
 </body>
