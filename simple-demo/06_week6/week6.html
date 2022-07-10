@@ -18,6 +18,57 @@
 
  <p1>For the first part of the assignment, I chose to follow the tutorial for the microphone sensor.</p1>
 
+ This is the circuit:
+
+ ![image of embroidery](Week6image1.jpg)
+
+ This is the code used:
+
+ <pre><code class="language-arduino">
+    const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
+    unsigned int sample;
+   
+    void setup() 
+    {
+       Serial.begin(9600);
+    }
+   
+   
+    void loop() 
+    {
+       unsigned long startMillis= millis();  // Start of sample window
+       unsigned int peakToPeak = 0;   // peak-to-peak level
+   
+       unsigned int signalMax = 0;
+       unsigned int signalMin = 1024;
+   
+       // collect data for 50 mS
+       while (millis() - startMillis < sampleWindow)
+       {
+          sample = analogRead(0);   //reading DC pin from pin A0
+          if (sample < 1024)  // toss out spurious readings
+          {
+             if (sample > signalMax)
+             {
+                signalMax = sample;  // save just the max levels
+             }
+             else if (sample < signalMin)
+             {
+                signalMin = sample;  // save just the min levels
+             }
+          }
+       }
+       peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
+   
+       Serial.println(peakToPeak);
+    }
+
+ </code></pre>
+
+ To control the microphone sensor, you hit it to make sound and it records it in numbers. When gathering data, I made two trials in order to make sure I made no error personally. Each trial was relatively the same with min values at 0 and max values at 20 (this does not include the starting data when the circuit was connected).
+
+ 
+
 </xmp>
 </body>
 
