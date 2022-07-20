@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PHYSCI S-12 : Introduction to Digital Fabrication</title>
+    <title>PHYSCI 70: Introduction to Digital Fabrication</title>
 </head>
 
 <body>
@@ -18,19 +18,20 @@
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script&gt;
 
     <script>
+    
     // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyD0AHJYFTOlQJAeqj8S1kVVUrFFtJf9VuA",
-        authDomain: "esp32-led-f6a91.firebaseapp.com",
-        databaseURL: "https://esp32-led-f6a91-default-rtdb.firebaseio.com",
-        projectId: "esp32-led-f6a91",
-        storageBucket: "esp32-led-f6a91.appspot.com",
-        messagingSenderId: "655209648773",
-        appId: "1:655209648773:web:19011b56c94214cccd4fec"
+    const firebaseConfig = {
+      apiKey: "AIzaSyD0AHJYFTOlQJAeqj8S1kVVUrFFtJf9VuA",
+      authDomain: "esp32-led-f6a91.firebaseapp.com",
+      databaseURL: "https://esp32-led-f6a91-default-rtdb.firebaseio.com",
+      projectId: "esp32-led-f6a91",
+      storageBucket: "esp32-led-f6a91.appspot.com",
+      messagingSenderId: "655209648773",
+      appId: "1:655209648773:web:19011b56c94214cccd4fec"
     };
-
+    
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
     // Get a database reference to our blog
     var ref = firebase.database().ref("/");
@@ -55,8 +56,3 @@
     </script>
 
 </body>
-
-<script src="https://strapdownjs.com/v/0.2/strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
-</html>
