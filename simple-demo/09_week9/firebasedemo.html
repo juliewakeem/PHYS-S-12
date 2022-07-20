@@ -18,20 +18,19 @@
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script&gt;
 
     <script>
-    
     // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyD0AHJYFTOlQJAeqj8S1kVVUrFFtJf9VuA",
-      authDomain: "esp32-led-f6a91.firebaseapp.com",
-      databaseURL: "https://esp32-led-f6a91-default-rtdb.firebaseio.com",
-      projectId: "esp32-led-f6a91",
-      storageBucket: "esp32-led-f6a91.appspot.com",
-      messagingSenderId: "655209648773",
-      appId: "1:655209648773:web:19011b56c94214cccd4fec"
+    var firebaseConfig = {
+        apiKey: "AIzaSyD0AHJYFTOlQJAeqj8S1kVVUrFFtJf9VuA",
+        authDomain: "esp32-led-f6a91.firebaseapp.com",
+        databaseURL: "https://esp32-led-f6a91-default-rtdb.firebaseio.com",
+        projectId: "esp32-led-f6a91",
+        storageBucket: "esp32-led-f6a91.appspot.com",
+        messagingSenderId: "655209648773",
+        appId: "1:655209648773:web:19011b56c94214cccd4fec"
     };
-    
+
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
 
     // Get a database reference to our blog
     var ref = firebase.database().ref("/");
