@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PHYS S-12: Intro to Digital Fabrication </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+
+<body>
+
+
+<xmp theme="journal" style="display:none;">
+
+
+
+ ### Week 10: Machine Building - Stepper Motors
+
+ <h1>Final Project Prototype</h1>
+ <br>
+ For this assignment, I decided to use the stepper motor to create a prototype for the extending part of my project. From class, I learned that stepper motors can be used to create linear motion. I researched a lot of ways to do this and felt that using gears was the best way to do this without overcomplicating the prototype. 
+ <br>
+ Here is a picture from Fusion 360 and videos from the 3D printing process:
+ <br>
+ ![image of embroidery](Week10image1.jpeg)
+ <br>
+ <video controls autoplay width="400" length="500">
+    <source src="Printervideo1.mp4" type="video/mp4">
+ </video>
+  <br>
+  <br>
+  <video controls autoplay width="400" length="500">
+    <source src="Printervideo2.mp4" type="video/mp4">
+ </video>
+ <br>
+ <br>
+ <video controls autoplay width="400" length="500">
+    <source src="Printervideo3.mp4" type="video/mp4">
+ </video>
+ <br>
+ <br>
+ I used M3 x 10mm screws to secure the pieces together. Here is the finished gear part:
+ <br>
+ ![image of embroidery](Week10image2.jpg)
+ <br>
+ ![image of embroidery](Week10image3.jpg)
+ <br>
+ ![image of embroidery](Week10image4.jpg)
+ <br>
+ For the stepper motor, I used the simple circuit from class as well as the very first code since I only needed the stepper motor to rotate normally. 
+ <br>
+ Here is a picture of the circuit with the gear part:
+ <br>
+ ![image of embroidery](Week10image5.jpg)
+ <br>
+ ![image of embroidery](Week10image6.jpg)
+ <br>
+ Here is the code used for the stepper motor:
+ <br>
+ <pre><code class="language-arduino">
+    const int stepPin = 13;
+    const int dirPin = 12;
+    
+    void setup() {
+      // put your setup code here, to run once:
+      pinMode(stepPin, OUTPUT);
+      pinMode(dirPin, OUTPUT);
+    
+      digitalWrite(dirPin, LOW);
+    }
+    
+    void loop() {
+      // put your main code here, to run repeatedly:
+      digitalWrite(stepPin, LOW);
+      delay(5);
+      digitalWrite(stepPin, HIGH);
+      delay(5);
+    }
+ </code></pre>
+ <br>
+ <br>
+ Finally, here is a video of the stepper motor and gear part. The cardboard hand represents the bone structure of my final project. This is to simply demonstrate the extending part of the project. I have learned that the extending part will provide limitations for the whole glove because of the weight of the motor and gear piece. I will definetly look for an alternative solution. 
+ <br>
+ <video controls autoplay width="400" length="500">
+    <source src="Extensionvideo.mp4" type="video/mp4">
+ </video>
+ <br>
+ <br>
+ The way the gear piece is connected to the motor is by a white piece that has a drilled hole that fits the motor. I can detach that piece from the motor and use it as a handle to bring the "hand" back to "home" position (this is the point closest to the gear). Here is a picture of that piece.
+ <br>
+ ![image of embroidery](Week10image7.jpeg)
+
+</xmp>
+</body>
+
+<script src="https://strapdownjs.com/v/0.2/strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+</html>
