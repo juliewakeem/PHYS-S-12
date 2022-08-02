@@ -180,7 +180,7 @@
  <br>
  Here is the code:
  <br>
- <pre><code class="language-arduino">
+<pre><code class="language-arduino">
   const int stepPin = 13;
   const int dirPin = 12;
   const int buttonPin = 26;     // the number of the pushbutton pin;
@@ -188,12 +188,12 @@
   const int A1B = 5;  // define pin 5 for A-1B (direction)
   const int buttonPin1 = 19;     // the number of the pushbutton pin
   const int buttonPin2 = 21;   // the number of the 2nd pushbutton pin
-  
+
   void setup() {
     // put your setup code here, to run once:
     pinMode(stepPin, OUTPUT);
     pinMode(dirPin, OUTPUT);
-  
+
     digitalWrite(stepPin, 0);  // start with the buzzer off 
     pinMode(buttonPin, INPUT_PULLUP);
     pinMode(A1A, OUTPUT);     // specify these pins as outputs
@@ -203,7 +203,7 @@
     pinMode(buttonPin1, INPUT_PULLUP);
     pinMode(buttonPin2, INPUT_PULLUP);
   }
-  
+
   void loop() {
     // read the state of the pushbutton value:
         int buttonState = digitalRead(buttonPin);
@@ -211,7 +211,7 @@
         if (buttonState == LOW) {
           // start the  stepper motor
     // put your main code here, to run repeatedly:
-         digitalWrite(stepPin, LOW);
+        digitalWrite(stepPin, LOW);
         delay(5);
         digitalWrite(stepPin, HIGH);
         delay(5);
@@ -235,10 +235,10 @@
           digitalWrite(A1A, LOW);   //  turns off motor when the button is unpressed
           digitalWrite(A1B, LOW);
         }
-  
+
   }
-  
- </code></pre>
+
+</code></pre>
  <br>
  <h3>Putting the pieces on the Glove/Complications</h3>
  <br>
