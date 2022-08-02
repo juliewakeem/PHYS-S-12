@@ -124,8 +124,6 @@
  <br>
  ![image of embroidery](FinalProjectimage5.jpg)
  <br>
- ![image of embroidery](FinalProjectimage6.jpg)
- <br>
  ![image of embroidery](FinalProjectimage7.jpg)
  <br>
  ![image of embroidery](FinalProjectimage8.jpg)
@@ -144,7 +142,9 @@
  <br>
  <p1> One of the first parts I created for this glove is the part that would allow the bone structure to extend forward.</p1>
  <br>
+ <br>
  <a href="https://juliewakeem.github.io/PHYS-S-12/simple-demo/010_week10/week10.html">This link will lead to a page that explains the complete process for this prototype. Click Here. </a>
+ <br>
  <br>
  <p1>Essentially, I learned in class that the stepper motors could be used to create linear motion. I thought this was very interesting since I needed something that would be able to move back and forth to allow the bone structure to extend forward. Therefore, I used gears to turn the stepper motor's rotating motion into linear motion. The most reaoccuring problem for this part was the friction between the motor and the piece that connected to the gears. To fix this, I used a mechanical shaft coupling and lots of hot glue to secure the pieces together to reduce the amount of friction. This is the part of the design I am most proud of because of how interesting it was to build. I learned a lot from just this part alone.</p1>
  <br>
@@ -169,6 +169,82 @@
  <p1>For the circuit I used the very basic setup that was introduced in class for the stepper motor as well as a button to control it. I also used the DRV8834 low-voltage stepper driver. As for the DC motor, I used the L9110 motor driver and two buttons to control the direction of the rotating motion. </p1>
  <br>
  Here are images of the circuit:
+ <br>
+ ![image of embroidery](FinalProjectimage14.jpg)
+ <br>
+ ![image of embroidery](FinalProjectimage15.jpg)
+ <br>
+ ![image of embroidery](FinalProjectimage16.jpg)
+ <br>
+ ![image of embroidery](FinalProjectimage17.jpg)
+ <br>
+ Here is the code:
+ <br>
+ <pre><code class="language-arduino">
+  const int stepPin = 13;
+  const int dirPin = 12;
+  const int buttonPin = 26;     // the number of the pushbutton pin;
+  const int A1A = 18;  // define pin 18 for A-1A (speed)
+  const int A1B = 5;  // define pin 5 for A-1B (direction)
+  const int buttonPin1 = 19;     // the number of the pushbutton pin
+  const int buttonPin2 = 21;   // the number of the 2nd pushbutton pin
+  
+  void setup() {
+    // put your setup code here, to run once:
+    pinMode(stepPin, OUTPUT);
+    pinMode(dirPin, OUTPUT);
+  
+    digitalWrite(stepPin, 0);  // start with the buzzer off 
+    pinMode(buttonPin, INPUT_PULLUP);
+    pinMode(A1A, OUTPUT);     // specify these pins as outputs
+    pinMode(A1B, OUTPUT);
+    digitalWrite(A1A, LOW);   // start with the motors off 
+    digitalWrite(A1B, LOW);
+    pinMode(buttonPin1, INPUT_PULLUP);
+    pinMode(buttonPin2, INPUT_PULLUP);
+  }
+  
+  void loop() {
+    // read the state of the pushbutton value:
+        int buttonState = digitalRead(buttonPin);
+        // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+        if (buttonState == LOW) {
+          // start the  stepper motor
+    // put your main code here, to run repeatedly:
+         digitalWrite(stepPin, LOW);
+        delay(5);
+        digitalWrite(stepPin, HIGH);
+        delay(5);
+        } else {
+          // stop the stepper motor
+          digitalWrite(stepPin, 0);   //  turns off buzzer when the button is unpressed
+        }
+    // read the state of the pushbutton value:
+        int buttonState1 = digitalRead(buttonPin1);
+        int buttonState2 = digitalRead(buttonPin2);
+        // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+        if (buttonState2 == LOW) {
+        // start the motor 
+          digitalWrite(A1A, HIGH);   
+          digitalWrite(A1B, LOW);
+        } else if (buttonState1 == LOW){
+          // stop the motor
+          digitalWrite(A1A, LOW);   //  turns off motor when the button is unpressed
+          digitalWrite(A1B, HIGH);
+        } else{
+          digitalWrite(A1A, LOW);   //  turns off motor when the button is unpressed
+          digitalWrite(A1B, LOW);
+        }
+  
+  }
+  
+ </code></pre>
+ <br>
+ <h3>Putting the pieces on the Glove/Complications</h3>
+ <br>
+ <p1>After aking sure my bone structure and extension piece work as best as they could, I moved on to attaching those pieces to the glove. A problem that resulted immediately is where to put the motors and giant gears as well as if the glove will be able to hold all the weight of the pieces. I first started by designing an extra piece to the original glove so that there is more material to fit the motors on. I did this by taking another glove and cutting off the finger pieces and attaching it with a thread. I also put velcro on the side so that it is more easily accesible to put the hand through.</p1>
+ <br>
+ This is what the glove looked like when finished:
  <br>
  
 
